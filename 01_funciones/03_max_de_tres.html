@@ -15,19 +15,29 @@
       <div id="resultado"></div>
     </div>
     <script>
-        function calcular_max() {
-          /*
-            Ejercicio: Copia tu función "max" del ejercicio 2 y pegarlo abajo
-            de esta función (después del colchete de cierre). Termina esta
-            función para llamar a "max" varias veces para calcular el valor
-            máximo de los tres números entrados y escribir el resultado en
-            el div "#resultado".
-           */
 
-          // Tu código acá!
+        function calcular_max() {
+          var n1 = parseInt(document.querySelector("#numero1").value);
+          var n2 = parseInt(document.querySelector("#numero2").value);
+          var n3 = parseInt(document.querySelector("#numero3").value);
+
+          var maximo = max(n1, n2);
+          maximo = max(maximo, n3);
+
+          var resultado = document.querySelector("#resultado");
+          resultado.innerHTML = "Max: " + maximo;
         }
 
-        // Pega tu función "max" acá:
+        function max(n1, n2) {
+           var maximo;
+           if (n1 > n2) {
+             maximo = n1;
+           } else {
+             maximo = n2;
+           }
+
+           return maximo;
+        }
 
     </script>
   </body>
