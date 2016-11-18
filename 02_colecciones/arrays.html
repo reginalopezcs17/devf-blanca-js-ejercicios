@@ -8,10 +8,48 @@
 <body>
   <h1> Arreglos </h1>
 
-  <script>
+  <label for="seleccion"> Escoge tu arma: </label>
 
-    // Hola Héctor!! Esta línea escribió Brian.
-    "esto debe ser un conflicto"
+  <select name="seleccion" id="seleccion">
+    <option value="piedra"> Piedra </option>
+    <option value="papel"> Papel </option>
+    <option value="tijeras"> Tijeras </option>
+  </select>
+
+  <button onclick="jugar();">
+    JUGAR
+  </button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function jugar() {
+      var items = ["piedra", "papel", "tijeras"];
+      //             0      ,  1     ,    2
+
+      var seleccion_maquina = items[0]; // siempre piedra
+      var seleccion_jugador = document.querySelector("#seleccion").value;
+
+      var ganador = definir_ganador(seleccion_jugador, seleccion_maquina);
+      dibujar(ganador);
+    }
+
+    function definir_ganador(s_jugador, s_maquina){
+      // Completar lógica del juego
+      var resultado;
+      if(s_maquina == s_jugador){
+        resultado = "empate";
+      }
+      return resultado;
+    }
+
+    function dibujar(valor){
+      document.querySelector("#resultado").innerHTML = valor;
+    }
+
+    // function agregar_a_reusltado(valor){
+    //   // append
+    // }
 
   </script>
 </body>
