@@ -25,23 +25,34 @@
   <script>
     function jugar() {
       var items = ["piedra", "papel", "tijeras"];
-      //             0      ,  1     ,    2
 
-      var seleccion_maquina = items[0]; // siempre piedra
+      var seleccion_maquina = maquina_escoge(items); // siempre piedra
       var seleccion_jugador = document.querySelector("#seleccion").value;
 
-      var ganador = definir_ganador(seleccion_jugador, seleccion_maquina);
-      dibujar(ganador);
+      var reglas = {
+        piedra: { papel: "Pierdes :(((", tijeras: "Ganas !! o/"},
+        papel:  { tijeras: "Pierdes :(((", piedra: "Ganas !! o/"},
+        tijeras: { piedra: "Pierdes :(((", papel: "Ganas !! o/"},
+      };
+
+      var ganador = definir_ganador(seleccion_jugador, seleccion_maquina, reglas);
+
+      dibujar("La maquina escogió: " +  seleccion_maquina + ", por lo tanto: " + ganador);
     }
 
-    function definir_ganador(s_jugador, s_maquina){
-      // Completar lógica del juego
-      var resultado;
-      if(s_maquina == s_jugador){
-        resultado = "empate";
-      }
-      return resultado;
+    function definir_ganador(s_jugador, s_maquina, reglas){
+        if(s_maquina == s_jugador){
+          return "Empatas -.-";
+        }
+        var regla = reglas[s_jugador];
+        return regla[s_maquina];
     }
+
+    function maquina_escoge(items){
+      var n_random =  Math.floor(Math.random() * 3);
+      return items[n_random];
+    }
+
 
     function dibujar(valor){
       document.querySelector("#resultado").innerHTML = valor;
