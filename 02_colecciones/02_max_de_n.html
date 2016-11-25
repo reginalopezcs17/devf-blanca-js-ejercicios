@@ -23,7 +23,14 @@
             Ejercicio: `numeros` es un array de números. Usa un
             bucle `for` para encontrar el máximo.
            */
-
+           for(i in numeros){
+             var n_actual = parseInt( numeros [i]);
+             if(n_actual > max){
+               maximo = n_actual;
+             }
+             //n_actual es una variable que cambia (le puedo poner otro nombre que no sea n_actual)
+             //parseInt convierte una cadena a un numero
+           }
           return maximo;
         }
         // ******************************************

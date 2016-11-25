@@ -20,6 +20,12 @@
       "Cuba": "Raúl Castro",
       "Canadá": "Justin Trudeau"
     };
+    var select= document. querySelector("#presidentes")
+
+    for (p in presidentes){
+      //console.log(p);
+    var presidente = presidentes[p];
+    select.innerHTML += "<option value=´´>" + presidente + "</option>";
 
     /* Ejercicio: llenar el select de País con todos los países, y el select
        de presidente con todos los presidentes.
